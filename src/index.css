@@ -14,13 +14,19 @@
   --bg-primary:#222222;
   --bg-main:#fdfaed;
   --text-main:#22272d;
-  --btn-primary:#ffca3c;
+  --bg-secondary:#ffca3c;
 
 }
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
 }
 body{
   font-family: 'iransans','tahoma';

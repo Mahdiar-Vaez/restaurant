@@ -1,0 +1,48 @@
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    position: sticky;
+    background-color: var(--bg-primary);
+    color: #fff;
+}
+nav > a {
+    color: white !important;
+}
+nav > ul{
+    display: flex;
+    gap: 20px;
+}
+nav > img{
+    margin:0 20px ;
+}
+nav li{
+    padding: 0 10px;
+}
+.shape{
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+    background-color: var(--bg-secondary);
+    position: relative;
+}
+.shape:hover{
+    transform: scale(1.05);
+}
+
+.triangle{
+    clip-path: polygon(47% 53%, 0% 100%, 100% 100%);
+    width: 180px;
+    height: 100px;
+    position: absolute;
+    background-color: var(--bg-secondary);
+    left: 50%;
+    transform: translateX(-50%) rotateZ(180deg);
+    
+
+    top: 100%;
+}
