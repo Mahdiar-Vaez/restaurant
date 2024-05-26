@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'iransans';
+  src: url(./fonts/IRANSansWeb.ttf);
+}
+@font-face {
+  font-family: 'tahoma';
+  src: url(fonts/W\ tahoma\ .ttf);
+}
+@font-face {
+  font-family: 'titr';
+  src: url(fonts/Sepahbod.otf);
+}
+:root{
+  --bg-primary:#222222;
+  --bg-main:#fdfaed;
+  --text-main:#22272d;
+  --btn-primary:#ffca3c;
+
+}
+
+body{
+  font-family: 'iransans','tahoma';
+}
+.section{
+  padding:0 84px;
+}
