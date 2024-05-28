@@ -15,12 +15,14 @@
   --bg-main:#fdfaed;
   --text-main:#22272d;
   --bg-secondary:#ffca3c;
+  --bg-reding:#f2002d
 
 }
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  direction: rtl;
 }
 ul{
   list-style: none;
@@ -33,4 +35,7 @@ body{
 }
 .section{
   padding:0 84px;
+}
+h3{
+  font-family: 'titr';
 }

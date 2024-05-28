@@ -1,5 +1,20 @@
 {
-    "products":[
-        {"name":"pizza","price":2000}
+    "Swiper":[
+        {
+            "imgUrl":"./assets/slider1.png",
+            "name":"همبرگر رو بزن تو رگ",
+            
+        },
+        {   
+            "imgUrl":"./assets/slider2.png",
+            "name":"همبرگر با سیب زمینی مخصوص بزن "
+
+        },
+        {
+            "imgUrl":"./assets/slider3.png",
+            "name":"مرغ سوخاری رو بزن تو رگ "
+
+            
+        }
     ]
 }
