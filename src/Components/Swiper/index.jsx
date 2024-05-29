@@ -15,10 +15,21 @@ import { Navigation ,Autoplay} from "swiper/modules";
 
 export default function SwiperSec() {
     const [img,setImg]=useState()
-    useEffect(()=>{ fetch('http://localhost:3000/Swiper')
-    .then(res=>res.json())
-    .then(data=>setImg(data))
+//     useEffect(()=>{ fetch('http://localhost:3000/Swiper')
+//     .then(res=>res.json())
+//     .then(data=>setImg(data))
 
+// },[])
+useEffect(()=>{
+  (async()=>{
+    try {
+      const res=await fetch("http://localhost:3001/Swiper")
+      const data=await res.json()
+      setImg(data)
+    } catch (error) {
+alert('can not fetch')  
+  }
+  })()
 },[])
    
   return (
