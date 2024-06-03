@@ -39,6 +39,7 @@ nav li{
     transform: scale(1.05);
 }
 
+
 .triangle{
     clip-path: polygon(47% 53%, 0% 100%, 100% 100%);
     width: 180px;

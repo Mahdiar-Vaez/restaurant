@@ -1,8 +1,15 @@
 import React from "react";
 import "./footer.css";
 import cards from '../../assets/cards.png'
+import { FaTelegramPlane } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
+
 export default function Footer() {
   return (
+    <>
     <footer className="section">
       <ul className="menu">
         <li>دسر</li>
@@ -54,9 +61,19 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="copy-right">
-        <p>تمامی حقوق این سایت محفوظ است. ساخته شده توسط mahdyarvaez@gmail.com</p>
-      </div>
+    
     </footer>
+      <div className="copy-right">
+      <p>تمامی حقوق این سایت محفوظ است. ساخته شده توسط mahdyarvaez@gmail.com</p>
+      <div>
+        <a href="https://t.me/MAHDIARVAEZ"><FaTelegramPlane/></a>
+    <a href="https://mahdyarvaez@gmail.com"> <MdEmail/></a>
+   
+    <a href="https://www.linkedin.com/in/mahdyar-vaez-ab39652ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> <FaLinkedin/></a>
+<a href="https://instagram.com/mahdiarvaez"><FaInstagram /></a>    
+      </div>
+    </div>
+    </>
   );
 }
+
