@@ -1,8 +1,23 @@
 import React, { useEffect, useState } from "react";
 import SwiperSec from "../../Components/Swiper";
 import "./home.css";
-import {pizza,hambuger,delivery,sandwich,drink,bannerBurger,bannerPizza,bannerChicken} from './import'
+import { MdOutlineDeliveryDining } from "react-icons/md";
+import { FaCarSide } from "react-icons/fa";
+import { BiSolidFoodMenu } from "react-icons/bi";
+import { RiEmpathizeFill } from "react-icons/ri";
+
+import {
+  pizza,
+  hambuger,
+  delivery,
+  sandwich,
+  drink,
+  bannerBurger,
+  bannerPizza,
+  bannerChicken,
+} from "./import";
 import { Link } from "react-router-dom";
+import { FaCableCar } from "react-icons/fa6";
 export default function Home() {
   const [hamburger, setHamburger] = useState();
   useEffect(() => {
@@ -81,19 +96,46 @@ export default function Home() {
       </div>
       <div className="hamburgers section">{hamburgerItems}</div>
       <div className="delivery section">
-        <div  className="deliver-content"> 
+        <div className="deliver-content">
           <h3>سریع و رایگان تحویل درب منزل</h3>
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+          <p>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است
+          </p>
           <button>سفارش و تحویل آنلاین</button>
         </div>
         <div>
           <img src={delivery} alt="delivery image" />
         </div>
         <div className="deliver-content">
-          <h3> نقطه راحت
-را انتخاب کن</h3>
-<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+          <h3> نقطه راحت را انتخاب کن</h3>
+          <p>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است
+          </p>
           <button>نزدیک ترین شعبه رو پیدا کن</button>
+        </div>
+      </div>
+      <div className="capabilities">
+        <div>
+        <RiEmpathizeFill color="red"/>
+          <h5>خدمات منعطف</h5>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+        </div>
+        <div>
+          <BiSolidFoodMenu color="brown"/>
+          <h5>منوهای اورجینال</h5>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+        </div>
+        <div>
+          <FaCarSide color="green"/>
+          <h5> پارکینگ رایگان</h5>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+        </div>
+        <div>
+          <MdOutlineDeliveryDining color="#ffca3c"/>
+          <h5>تحویل فوری</h5>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
         </div>
       </div>
     </>
