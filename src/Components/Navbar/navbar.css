@@ -122,13 +122,17 @@ border-radius: 30px;
     border: 1px solid gray;
     opacity: 0;
     visibility: hidden;
-    width: 100px;
+    width: 150px;
     height: 200px;
 }
-.dropdown-ul > li{
-    border-bottom: solid 1px gray;
+.dropdown-ul > a{
     cursor: pointer;
     width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 14px;
+
+    color: var(--bg-primary);
 }
 .dropdown-ul  li:hover{
     background-color: var(--bg-primary);

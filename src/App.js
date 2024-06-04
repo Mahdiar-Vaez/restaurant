@@ -14,7 +14,7 @@ export default function App() {
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home/>} />
-        <Route  path="/foods/:name/id" element={<Foods/>} />
+        <Route  path="/foods/:name/:id" element={<Foods/>} />
         <Route path="/food-detail/:id/:name" element={<FoodDetail/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/login-register" element={<LoginRegister/>} />

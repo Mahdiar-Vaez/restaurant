@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigationType } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 export default function Navbar() {
+  const location = useLocation();
+  const navType = useNavigationType();
     const [scale,setScale]=useState(false)
 const [distanceFromTop,setDistanceFromTop]=useState()
-console.log(distanceFromTop)
     useEffect(()=>{
       window.addEventListener('scroll',()=>{
       setDistanceFromTop(window.scrollY)})
@@ -18,7 +19,19 @@ console.log(distanceFromTop)
 else
    setScale(false)
   },[distanceFromTop])
-
+  useEffect(() => {
+    if (navType !== "POP") {
+      window.scrollTo({
+        top: -1000,
+        behavior: "smooth",
+      });
+    }
+  }, [location.pathname]);
+  function handleTop(){
+    window.scrollTo({
+      top:-1000
+  })
+  }
     
 
   return (
@@ -46,6 +59,8 @@ else
         </Link>
         
       </ul>
+
+      <Link onClick={handleTop} to={'/'}>
       <div className="shape" style={{
         transform:scale?'scale(1.05)':'',
       }}>
@@ -60,15 +75,16 @@ else
           loading="lazy"
           alt="Lafka logo"
         />
-      </div>
+      </div></Link>
       <ul>
         <li className="dropdown">منو های ما 
           <FaChevronDown  color='white' fontSize={'small'}/>
           <ul className="dropdown-ul">
-            <li>پیتزا</li>
-            <li>همبرگر</li>
-            <li>نوشیدنی</li>
-            <li>سالاد</li>
+           <Link to={'/foods/all/0'}> <li>همه منو ها</li></Link>
+           <Link to={'/foods/pizza/1'}> <li>پیتزا</li></Link>
+           <Link to={'/foods/hamburger/2'}> <li>همبرگر</li></Link>
+           <Link to={'/foods/drinks/3'}> <li>نوشیدنی</li></Link>
+           <Link to={'/foods/sandwich/4'} > <li>ساندویچ</li></Link>
           </ul>
         </li>
         <li>بلاگ ما</li>
