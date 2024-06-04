@@ -116,14 +116,11 @@ border-radius: 30px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
     border: 1px solid gray;
     opacity: 0;
     visibility: hidden;
     width: 150px;
-    height: 200px;
+    height: 150px;
 }
 .dropdown-ul > a{
     cursor: pointer;
