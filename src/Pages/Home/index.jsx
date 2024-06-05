@@ -33,6 +33,7 @@ export default function Home() {
   }, []);
   const hamburgerItems = hamburger?.map((e, index) => {
     return (
+      <Link to={`/food-detail/${e.id}/${e?.name.split(' ').join('-')}`}>
       <div className="hamburger-items">
         <img src={e?.img} alt={e?.name} />
         <span>{e?.price} تومان</span>
@@ -42,7 +43,7 @@ export default function Home() {
           {" "}
           <button>سفارش</button>
         </div>
-      </div>
+      </div></Link>
     );
   });
   return (

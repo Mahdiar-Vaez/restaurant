@@ -36,7 +36,7 @@ export default function Foods() {
       <h4>{e?.name}</h4>
       <p>{e?.des}</p>
       <span>{e?.price}تومان</span>
-    <Link to={`/food-detail/${e?.id}/${e?.name}`}>سفارش </Link>
+    <Link to={`/food-detail/${e?.id}/${e?.name.split(' ').join('-')}`}>سفارش </Link>
     </div>
   ))
   return (
