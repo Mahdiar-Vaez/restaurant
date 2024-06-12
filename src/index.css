@@ -40,3 +40,6 @@ body{
 h3{
   font-family: 'titr';
 }
+.Toastify__toast-body{
+  font-family: 'iransans';
+}

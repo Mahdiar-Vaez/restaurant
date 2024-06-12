@@ -6,6 +6,7 @@ import { FaChevronDown } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
+import ToastComponent from "../Toast/Toast";
 export default function Navbar() {
   const location = useLocation();
   const navType = useNavigationType();
@@ -87,12 +88,14 @@ else
            <Link to={'/foods/sandwich/4'} > <li>ساندویچ</li></Link>
           </ul>
         </li>
-        <li>بلاگ ما</li>
-        <li>خانه</li>
+        <Link  style={{color:'white'}}> <li>بلاگ ما</li></Link>
+       <Link style={{color:'white'}} to={'/'} >        <li>خانه</li>
+</Link>
         <button className="btn-right">
           
           09056375314</button>
       </ul>
+      <ToastComponent/>
     </nav>
     
   );

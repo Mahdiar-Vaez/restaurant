@@ -7,8 +7,10 @@ import FoodDetail from "./Pages/FoodDetail";
 import Cart from "./Pages/Cart";
 import LoginRegister from "./Pages/LoginRegister";
 import Footer from "./Components/Footer";
-import NotFound from "./Pages/NotFound";
+import NotFound from "./Pages/NotFound";  
+import { useSelector } from "react-redux";
 export default function App() {
+  const {user}=useSelector((state)=>state.auth)
   return (
     <>
       <Navbar/>
@@ -16,8 +18,8 @@ export default function App() {
         <Route exact path="/" element={<Home/>} />
         <Route  path="/foods/:name/:id" element={<Foods/>} />
         <Route path="/food-detail/:id/:name" element={<FoodDetail/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/login-register" element={<LoginRegister/>} />
+        <Route path="/cart" element={user?<Cart/>:<Navigate to={'/login-register'}/>} />
+        <Route path="/login-register" element={user?<Navigate to={'/'}/>:<LoginRegister/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer/>

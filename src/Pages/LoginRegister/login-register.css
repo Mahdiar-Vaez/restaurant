@@ -1,0 +1,59 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    min-height: 70svh;
+    background-color: #fff;
+    gap: 20px;
+    transition: all .4s;
+    
+}
+.login h3{
+    font-size: 24px;
+    font-family: 'iransans';
+    font-weight: 800;
+
+}
+.login input{
+    width: 380px;
+    height: 50px;
+    background-color:#f6f6f6 ;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    direction: ltr;
+}
+.login label{
+    font-size: 14px;
+}
+.login button{
+    background-color: var(--bg-secondary);
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.login button:hover{
+    color: white;
+    background-color: var(--bg-primary);
+}
+.check-box{
+    width: 30px !important;
+    height: 10px;
+    cursor: pointer;
+}
+.password{
+    position: relative;
+}
+.eye{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+
+}

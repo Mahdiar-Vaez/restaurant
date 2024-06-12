@@ -24,6 +24,8 @@
     text-align: center;
     cursor: pointer;
     outline: none;
+    
+
 }
 .food-detail .price {
     font-family: 'tahoma';
