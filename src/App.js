@@ -10,7 +10,8 @@ import Footer from "./Components/Footer";
 import NotFound from "./Pages/NotFound";  
 import { useSelector } from "react-redux";
 export default function App() {
-  const {user}=useSelector((state)=>state.auth)
+  const {user,token}=useSelector((state)=>state.auth)
+    console.log(user,token)
   return (
     <>
       <Navbar/>
@@ -19,7 +20,7 @@ export default function App() {
         <Route  path="/foods/:name/:id" element={<Foods/>} />
         <Route path="/food-detail/:id/:name" element={<FoodDetail/>} />
         <Route path="/cart" element={user?<Cart/>:<Navigate to={'/login-register'}/>} />
-        <Route path="/login-register" element={user?<Navigate to={'/'}/>:<LoginRegister/>} />
+        <Route element={user?<Navigate to={'/'} />:<LoginRegister/>} path="/login-register" />
         <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer/>

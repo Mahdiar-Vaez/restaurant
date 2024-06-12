@@ -54,9 +54,9 @@ else
           {" "}
           <li>سفارش آنلاین</li>
         </Link>
-        <Link style={{ color: "white" }}>
+        <Link to={'/login-register'} style={{ color: "white" }}>
           {" "}
-          <li>شعبه های ما</li>  
+          <li>ورود </li>  
         </Link>
         
       </ul>
