@@ -7,6 +7,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import ToastComponent from "../Toast/Toast";
+import Toast from "../Toast/Toast";
 export default function Navbar() {
   const location = useLocation();
   const navType = useNavigationType();
@@ -43,7 +44,7 @@ else
        <div className="btn-left">
 <CiSearch/>
 <MdFavoriteBorder/>
-<CiShoppingCart/>
+ <Link style={{color:'black'}} to={'/cart'}><CiShoppingCart/></Link>
         </div>
       
       <ul>
@@ -95,7 +96,7 @@ else
           
           09056375314</button>
       </ul>
-      <ToastComponent/>
+      <Toast/>
     </nav>
     
   );

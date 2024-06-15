@@ -7,7 +7,7 @@ import useFormFields from '../../../utils/UseFormFields';
 import { toast } from 'react-toastify';
 import ToastComponent from '../../../Components/Toast/Toast';
 export default function Register({handleUser}) {
-  const [eye, setEye] = useState(false)
+  const [eye, setEye] = useState(true)
   const [fields,handleFields]=useFormFields()
  async function handleSubmit(e){
     e.preventDefault()

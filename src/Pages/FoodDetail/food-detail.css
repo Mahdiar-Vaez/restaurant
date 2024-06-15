@@ -32,3 +32,31 @@
     font-size: 20px;
     color: var(--bg-reding);
 }
+.buttons{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+.buttons button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: white;
+}
+.buttons button span{
+    font-size: 20px;
+}
+.buttons button span:nth-child(1)
+{
+    color: rgb(39, 65, 0);
+    
+}
+.buttons button:hover{
+    color: black;
+    background-color: var(--bg-reding);
+}
+.buttons button:active{
+    color: white;
+}
