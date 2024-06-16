@@ -4,31 +4,25 @@ import './foods.css'
 import { Hourglass } from 'react-loader-spinner'
 export default function Foods() {
   const[foods,setFoods]=useState()
-  const [loading,setLoading]=useState(false)
+  const [loading,setLoading]=useState(true)
   const {name}=useParams()
   console.log(name)
  
   useEffect(()=>{
-    // (async()=>{
-    //   try {
-    //     setLoading(true)
-    //     const res=await fetch(`http://localhost:3001/${name}`)
-    //     const data=await res.json()
-    //      setFoods(data)
-    //      setLoading(false)
-    //     console.log(data)
-    //   } catch (error) {
-    //     alert(error)
-    //     setLoading(false)
-    //   }
-    // })()
-    fetch(`http://localhost:3001/${name}`)
-    .then(res=>res.json())
-    .then(data=>{setFoods(data)
+
+    (async()=>{
+      try {
+       const res=await fetch(`http://localhost:3001/${name}`)
+      const data=await res.json()
+      setFoods(data)
       setLoading(false)
-    })
-    .catch((err)=>console.log(err))
-    console.log(foods)
+      } catch (error) {
+        setLoading(false)
+        alert(error)
+      }
+  
+    })()
+
   },[name])
   const foodsItems=foods?.map((e,index)=>(
     <div key={index} className='food-card'>

@@ -6,9 +6,10 @@ import { FaChevronDown } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
-import ToastComponent from "../Toast/Toast";
-import Toast from "../Toast/Toast";
+import { useSelector } from "react-redux";
 export default function Navbar() {
+  const listLength=useSelector((state)=>state.cart.list).length
+  console.log(listLength)
   const location = useLocation();
   const navType = useNavigationType();
     const [scale,setScale]=useState(false)
@@ -44,7 +45,11 @@ else
        <div className="btn-left">
 <CiSearch/>
 <MdFavoriteBorder/>
- <Link style={{color:'black'}} to={'/cart'}><CiShoppingCart/></Link>
+ <Link className="cart-icon" style={{color:'black'}} to={'/cart'}><CiShoppingCart />
+{
+  
+  listLength>0 ?  <span>{listLength}</span>:''}
+ </Link>
         </div>
       
       <ul>
@@ -92,11 +97,8 @@ else
         <Link  style={{color:'white'}}> <li>بلاگ ما</li></Link>
        <Link style={{color:'white'}} to={'/'} >        <li>خانه</li>
 </Link>
-        <button className="btn-right">
-          
-          09056375314</button>
+       
       </ul>
-      <Toast/>
     </nav>
     
   );

@@ -136,3 +136,16 @@ border-radius: 30px;
     color: #ffffff;
 
 }
+.cart-icon{
+    position: relative;
+}
+.cart-icon span{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    background-color: red;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}

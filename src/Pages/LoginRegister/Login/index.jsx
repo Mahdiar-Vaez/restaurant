@@ -3,12 +3,15 @@ import '../login-register.css'
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import useFormFields from '../../../utils/UseFormFields';
-import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../../redux/authSlide';
 import ToastComponent from '../../../Components/Toast/Toast';
 export default function Login({handleUser}) {
-
+  const [toastify,setToast]=useState({
+    type:'',
+    message:'',
+    
+  })
   const dispatch=useDispatch()
 
   const [fields,handleFields]=useFormFields()
@@ -48,17 +51,27 @@ export default function Login({handleUser}) {
         )
     
         if (user) {
-          toast.success('با موفقیت وارد شدید ')
-        
+          setToast({
+            type:'success',
+            message:'با موفقیت وارد شدید'
+          })
+          
           dispatch(getUser({user:user,token:random}))
           
           
           
         } else {
-          toast.error('نام کاربری یا رمز عبور اشتباه است')
+          setToast({
+            type:'error',
+            message:'رمز عبور یا نام کاربری یافت نشد'
+          })
+          
         }
       } else {
-        toast.error('کاربری با این مشخصات یافت نشد')
+      setToast({
+        type:'error',
+        message:'کاربری با این مشخصات یافت نشد'
+      })
       }
     }
    
@@ -92,7 +105,7 @@ export default function Login({handleUser}) {
             ادامه
         </button>
     </div>
-    <ToastComponent  />
+    <ToastComponent  type={toastify.type} message={toastify.message} />
     </form>
   )
 }
