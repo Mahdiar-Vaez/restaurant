@@ -43,3 +43,6 @@ h3{
 .Toastify__toast-body{
   font-family: 'iransans';
 }
+h1 {
+  font-size: 1.5rem !important;
+}

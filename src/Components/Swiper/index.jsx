@@ -45,7 +45,7 @@ alert('can not fetch')
           <img src={e?.imgUrl} alt="جوجه سخاری" />
           <div className="slide-content">
             {" "}
-            <h3>{e?.name}</h3>
+            <h3 >{e?.name}</h3>
             <p>با بهترین مواد اولیه </p>
             <button className="slider-btn">سفارش دهید</button>
           </div>

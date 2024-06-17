@@ -56,6 +56,7 @@ else
        <div className="btn-left">
 <CiSearch/>
 <MdFavoriteBorder/>
+
  <Link className="cart-icon" style={{color:'black'}} to={'/cart'}><CiShoppingCart />
 {
   
@@ -67,7 +68,7 @@ else
         <Link style={{ color: "white" }}>
           <li>تماس با ما</li>
         </Link>
-        <Link style={{ color: "white" }}>
+        <Link to={'/foods/all/0'} style={{ color: "white" }}>
           {" "}
           <li>سفارش آنلاین</li>
         </Link>

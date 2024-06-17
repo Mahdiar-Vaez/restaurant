@@ -17,8 +17,7 @@ import {
   bannerChicken,
 } from "./import";
 import { Link } from "react-router-dom";
-import ToastComponent from "../../Components/Toast/Toast";
-import ToastContext from "../../utils/ToastContext";
+
 export default function Home() {
   const [hamburger, setHamburger] = useState();
 

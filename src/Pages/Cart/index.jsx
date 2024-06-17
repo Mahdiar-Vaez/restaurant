@@ -56,7 +56,7 @@ export default function Cart() {
             
               
           
-        }} to={'*'}>تسویه حساب</Link>
+        }} to={'*'}>ادامه سفارش </Link>
       </div>
       </div>
     </>):
