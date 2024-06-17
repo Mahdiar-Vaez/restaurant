@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes,Route,Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
@@ -9,11 +9,22 @@ import LoginRegister from "./Pages/LoginRegister";
 import Footer from "./Components/Footer";
 import NotFound from "./Pages/NotFound";  
 import { useSelector } from "react-redux";
+import ToastContext from "./utils/ToastContext";
 export default function App() {
   const {user,token}=useSelector((state)=>state.auth)
     console.log(user,token)
+    const [toastMessage,setToastMessage]=useState({
+      type:"info",
+      message:'خوش آمدید'
+    })
+   function handleToast(type,message){
+    setToastMessage({
+      type,
+      message
+   })}
   return (
     <>
+    <ToastContext.Provider value={{toastMessage,handleToast}}>
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home/>} />
@@ -24,7 +35,7 @@ export default function App() {
         <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer/>
-      
+      </ToastContext.Provider>
     </>
-  );
+  )
 }

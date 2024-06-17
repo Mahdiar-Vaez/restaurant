@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SwiperSec from "../../Components/Swiper";
 import "./home.css";
 import { MdOutlineDeliveryDining } from "react-icons/md";
@@ -17,9 +17,11 @@ import {
   bannerChicken,
 } from "./import";
 import { Link } from "react-router-dom";
-import { FaCableCar } from "react-icons/fa6";
+import ToastComponent from "../../Components/Toast/Toast";
+import ToastContext from "../../utils/ToastContext";
 export default function Home() {
   const [hamburger, setHamburger] = useState();
+
   useEffect(() => {
     (async () => {
       try {
@@ -48,6 +50,7 @@ export default function Home() {
   });
   return (
     <>
+ 
       <SwiperSec />
       <div className="category section">
         <div className="category-items">
@@ -138,6 +141,7 @@ export default function Home() {
           <h5>تحویل فوری</h5>
           <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
         </div>
+
       </div>
       
     </>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 import { Link, useLocation, useNavigationType } from "react-router-dom";
@@ -6,10 +6,17 @@ import { FaChevronDown } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../../redux/authSlide";
+import { toast } from "react-toastify";
+import ToastComponent from "../Toast/Toast";
 export default function Navbar() {
+  
+
   const listLength=useSelector((state)=>state.cart.list).length
   console.log(listLength)
+  const dispatch=useDispatch()
+  const {user}=useSelector((state)=>state.auth)
   const location = useLocation();
   const navType = useNavigationType();
     const [scale,setScale]=useState(false)
@@ -35,13 +42,17 @@ else
       top:-1000
   })
   }
-    
+    function handleLogOut(){
+      dispatch(removeUser())
+      toast.info('از حساب خود خارج شدین')
+    }
 
   return (
     <nav style={{
    
 
     }} className="section">
+       <ToastComponent/>
        <div className="btn-left">
 <CiSearch/>
 <MdFavoriteBorder/>
@@ -60,16 +71,20 @@ else
           {" "}
           <li>سفارش آنلاین</li>
         </Link>
-        <Link to={'/login-register'} style={{ color: "white" }}>
+        {user? 
+     
+          <li style={{cursor:'pointer'}} onClick={handleLogOut}>خروج از حساب  </li>  
+    :   <Link to={'/login-register'} style={{ color: "white" }}>
           {" "}
           <li>ورود </li>  
-        </Link>
+        </Link>}
+     
         
       </ul>
 
       <Link onClick={handleTop} to={'/'}>
       <div className="shape" style={{
-        transform:scale?'scale(1.05)':'',
+        transform:scale?'scale(1)':'',
       }}>
         {" "}
         <div className="triangle"></div>
@@ -99,6 +114,7 @@ else
 </Link>
        
       </ul>
+     
     </nav>
     
   );

@@ -34,9 +34,12 @@ nav li{
     transition: .2s;
     background-color: var(--bg-secondary);
     position: relative;
+    transform: scale(.7);
+
+    z-index: 10;
 }
 .shape:hover{
-    transform: scale(1.05);
+    transform: scale(1);
 }
 
 

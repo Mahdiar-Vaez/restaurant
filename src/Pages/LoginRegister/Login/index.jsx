@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../login-register.css'
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -6,12 +6,11 @@ import useFormFields from '../../../utils/UseFormFields';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../../redux/authSlide';
 import ToastComponent from '../../../Components/Toast/Toast';
+import ToastContext from '../../../utils/ToastContext';
+import { toast } from 'react-toastify';
 export default function Login({handleUser}) {
-  const [toastify,setToast]=useState({
-    type:'',
-    message:'',
-    
-  })
+
+
   const dispatch=useDispatch()
 
   const [fields,handleFields]=useFormFields()
@@ -51,27 +50,22 @@ export default function Login({handleUser}) {
         )
     
         if (user) {
-          setToast({
-            type:'success',
-            message:'با موفقیت وارد شدید'
-          })
+          toast.success('ورود موفقیت آمیز بود')
+          setTimeout(() => {
+            dispatch(getUser({ user: user, token: random }));
+          }, 1000);
           
-          dispatch(getUser({user:user,token:random}))
           
           
           
         } else {
-          setToast({
-            type:'error',
-            message:'رمز عبور یا نام کاربری یافت نشد'
-          })
+         
+          toast.error('نام کاربری اشتباه است')
           
         }
       } else {
-      setToast({
-        type:'error',
-        message:'کاربری با این مشخصات یافت نشد'
-      })
+        toast.error('کاربری با این مشخصات یافت نشد')
+
       }
     }
    
@@ -105,7 +99,7 @@ export default function Login({handleUser}) {
             ادامه
         </button>
     </div>
-    <ToastComponent  type={toastify.type} message={toastify.message} />
+      <ToastComponent/>
     </form>
   )
 }

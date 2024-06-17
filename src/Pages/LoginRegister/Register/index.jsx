@@ -12,24 +12,36 @@ export default function Register({handleUser}) {
  async function handleSubmit(e){
     e.preventDefault()
    
-      try {
-        const response=await fetch('http://localhost:3001/users',{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json'
-          },
-          body:JSON.stringify(fields)
-        })
-        const data=await response.json()
-        toast.success('با موفقیت ثبت نام کردین')
-        handleUser()
-       
-      } catch (error) {
-        toast.error('مشکلی با اطلاعات شما پیش اومده')
+    try {
+      const existingUsersResponse = await fetch('http://localhost:3001/users');
+      const existingUsers = await existingUsersResponse.json();
+
+      const userExists = existingUsers.some(user => user.username ===fields.username);
+
+      if (userExists) {
+        toast.error('نام کاربری وجود دارد. لطفاً نام کاربری دیگری انتخاب کنید.');
+        return;
       }
+
+      const response = await fetch('http://localhost:3001/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(fields)
+      });
+
+      const data = await response.json();
+
+      toast.success('با موفقیت ثبت نام کردید');
+      setTimeout(() => {
+        handleUser();
+      }, 1500);
+    } catch (error) {
+      toast.error('مشکلی با اطلاعات شما پیش اومده');
     }
   
-  
+ }
   return (
     
  

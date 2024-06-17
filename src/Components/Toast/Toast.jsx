@@ -1,23 +1,8 @@
-import React, { useEffect } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import React from 'react'
+import { ToastContainer,  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function ToastComponent({type='info',message}) {
-  useEffect(()=>{
-    switch(type) {
-      case 'success':
-        toast.success(message);
-        break;
-      case 'error':
-        toast.error(message);
-        break;
-      case 'warning':
-        toast.warning(message);
-        break;
-      default:
-        toast.info(message);
-    }
-  },[type,message])
+export default function ToastComponent() {
 
   return (
     <ToastContainer
