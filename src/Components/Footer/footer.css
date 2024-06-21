@@ -4,6 +4,7 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 footer > .menu{
     display: flex;
@@ -14,9 +15,11 @@ footer > .menu{
     gap: 20px;
     color: white;
     font-size: 18px;
+    flex-wrap: wrap;
     
 }
 .footer-sections{
+    flex-wrap: wrap;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -57,17 +60,21 @@ footer > .menu{
 .copy-right{
     background-color:var(--bg-primary);
     width: 100%;
-    height: 50px;
+    height: 60px;
     padding: 50px;
     color: #888888;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;   
+     flex-wrap: wrap;
+     align-self: 
+     center;
 }
 .copy-right div{
     display: flex;
     align-items: center;
     gap: 20px;
+   justify-content: center;
+    width: 100;
 }
 
 .copy-right svg{
@@ -77,4 +84,13 @@ footer > .menu{
 }
 .copy-right a {
     color:#888888;
+}
+@media only screen and (max-width: 1000px) {
+    .footer-sections img{
+      width: 250px;
+      height: 150px;
+    }
+    .copy-right{
+        padding: 10px;
+    }
 }

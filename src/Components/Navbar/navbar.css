@@ -141,9 +141,13 @@ border-radius: 30px;
 }
 .cart-icon{
     position: relative;
+
 }
 .cart-icon span{
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 20px;
     background-color: red;
@@ -152,4 +156,95 @@ border-radius: 30px;
     color: white;
     height: 20px;
     text-align: center;
+}
+/* for smaller device */
+.links{
+    display: none;
+    position: sticky;
+    top: 0;
+}
+.links ul{
+    display: none ;
+    width: 100%;
+    position: sticky !important;
+    display: flex ;  align-items: center;
+    background-color: var(--bg-primary);
+    justify-content: space-evenly;
+    height: 70px;
+    width: 100%;
+    z-index: 100;
+
+}
+.menu{
+    color: white;
+}
+.close-button-drawer{
+    position: absolute;
+    color: aqua!important;
+    top: 0;
+    font-size: 40px;
+    cursor: pointer;
+
+}
+.drawer ul{
+    
+    transition:all .5s;
+    transform:  translateX(300px);
+    opacity: 0;
+    visibility: hidden;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    position: fixed;
+    
+    top: 0;
+  
+    width: 300px ;
+    height: 100svh;
+    z-index: 1000;
+    background-color: var(--bg-primary);
+}
+
+.drawer a{
+    color: white;
+}
+.link-item{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 5px;
+    padding: 5px;
+}
+.drawer a:hover{
+    color: #888;
+}
+.drawer-active{
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: scale(1)  !important;
+
+}
+@media only screen and (max-width: 1281px) {
+  nav{
+    display: none;
+    
+  }
+  .links {
+    display: block;
+    z-index: 1000;
+ 
+  }
+  
+  
+}
+@media only screen and (max-width: 750px) {
+    .drawer ul{
+        width: 100%;
+    }
 }

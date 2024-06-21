@@ -9,7 +9,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../redux/authSlide";
 import { toast } from "react-toastify";
-import ToastComponent from "../Toast/Toast";
+import Links from "./Links";
 export default function Navbar() {
   
 
@@ -47,12 +47,13 @@ else
       toast.info('از حساب خود خارج شدین')
     }
 
-  return (
+  return (<>
+
+  <Links listLength={listLength} handleLogOut={handleLogOut} user={user} scale={scale} handleTop={handleTop}/>
     <nav style={{
    
 
     }} className="section">
-       <ToastComponent/>
        <div className="btn-left">
 <CiSearch/>
 <MdFavoriteBorder/>
@@ -116,7 +117,7 @@ else
        
       </ul>
      
-    </nav>
+    </nav></>
     
   );
 }

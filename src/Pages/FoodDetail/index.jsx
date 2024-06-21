@@ -62,13 +62,16 @@ export default function FoodDetail() {
             </button>
             <button style={{
               backgroundColor:quantity==undefined?'grey':'var(--bg-secondary) !important'
-            }} disabled={quantity>0 ? false :true}  onClick={() => dispatch(removeItem(food.id))}>
+            }}   onClick={() => dispatch(removeItem(food.id))}>
               کم کردن به سبد خرید
               <span>
                 <IoIosRemove />
               </span>
             </button>
-          </div>
+           
+          </div> {quantity && <p>
+              به سبد خرید به تعداد {quantity} اضافه شد 
+              </p>}
         </div>
       )}
     </div>

@@ -44,13 +44,14 @@
     align-items: center;
     height: 60px;
     color: white;
+    font-size: 18px;
 }
 .buttons button span{
     font-size: 20px;
 }
 .buttons button span:nth-child(1)
 {
-    color: rgb(39, 65, 0);
+    color: var(--bg-reding);
     
 }
 .buttons button:hover{
