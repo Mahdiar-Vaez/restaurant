@@ -6,7 +6,6 @@ export default function Foods() {
   const[foods,setFoods]=useState()
   const [loading,setLoading]=useState(true)
   const {name}=useParams()
-  console.log(name)
  
   useEffect(()=>{
 
@@ -24,15 +23,15 @@ export default function Foods() {
     })()
 
   },[name])
-  const foodsItems=foods?.map((e,index)=>(
-    <div key={index} className='food-card'>
-      <img  src={e?.img} alt='' />
-      <h4>{e?.name}</h4>
-      <p>{e?.des}</p>
-      <span>{e?.price}تومان</span>
-    <Link to={`/food-detail/${e?.id}/${e?.name.split(' ').join('-')}`}>سفارش </Link>
-    </div>
-  ))
+  // const foodsItems=foods?.map((e,index)=>(
+  //   <div key={index} className='food-card'>
+  //     <img  src={e?.img} alt='' />
+  //     <h4>{e?.name}</h4>
+  //     <p>{e?.des}</p>
+  //     <span>{e?.price}تومان</span>
+  //   <Link to={`/food-detail/${e?.id}/${e?.name.split(' ').join('-')}`}>سفارش </Link>
+  //   </div>
+  // ))
   return (
     <div className='foods section'>
       {loading?<div className='loading'>
@@ -46,7 +45,14 @@ export default function Foods() {
           colors={['#ffca3c', '#f2002d']}
         />
       </div>:<div className='foods-section'>
-          {foodsItems}
+          {Array.isArray(foods)>0 && foods.map((e,index)=>(
+    <div key={index} className='food-card'>
+      <img  src={e?.img} alt='' />
+      <h4>{e?.name}</h4>
+      <p>{e?.des}</p>
+      <span>{e?.price}تومان</span>
+    <Link to={`/food-detail/${e?.id}/${e?.name.split(' ').join('-')}`}>سفارش </Link>
+    </div>))}
          </div>}
 
     </div>

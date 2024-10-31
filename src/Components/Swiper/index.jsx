@@ -7,14 +7,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import "./swiper.css";
-import slider1 from "../../assets/slider3.png";
-import slider2 from "../../assets/slider2.png";
-import slider3 from "../../assets/slider1.png";
+
 // import required modules
 import { Navigation ,Autoplay} from "swiper/modules";
+import { Hourglass } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 export default function SwiperSec() {
     const [img,setImg]=useState()
+    const [loading,setLoading]=useState(true)
 //     useEffect(()=>{ fetch('http://localhost:3000/Swiper')
 //     .then(res=>res.json())
 //     .then(data=>setImg(data))
@@ -26,31 +27,46 @@ useEffect(()=>{
       const res=await fetch("http://localhost:3001/Swiper")
       const data=await res.json()
       setImg(data)
+      setLoading(false)
     } catch (error) {
-alert('can not fetch')  
+alert('مشکلی در سرور وجود دارد')  
+setLoading(false)
   }
   })()
 },[])
    
   return (
     <>
-    
-      <Swiper autoplay={{
+    {loading?   <div style={{
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      height:'400px'
+    }}> <Hourglass
+          visible={true}
+          height="200"
+          width="200"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={['#ffca3c', '#f2002d']}
+        /></div>:   <Swiper autoplay={{
         delay:3000,
         disableOnInteraction:false
       }}  navigation={true} modules={[Navigation,Autoplay]} className="mySwiper">
-     {img?.map((e)=> <SwiperSlide style={{
-      
-    }} className="section">
+     {img?.map((e)=> <SwiperSlide  className="section ">
           <img src={e?.imgUrl} alt="جوجه سخاری" />
           <div className="slide-content">
             {" "}
-            <h3 >{e?.name}</h3>
+            <h3  className="slide-content-h3">{e?.name}</h3>
             <p>با بهترین مواد اولیه </p>
-            <button className="slider-btn">سفارش دهید</button>
+            <button className="slider-btn">
+              <Link color="white" to={'/foods/all/0'}>
+              سفارش دهید</Link></button>
           </div>
         </SwiperSlide>)}
-      </Swiper>
+      </Swiper>}
+   
     </>
   );
 }

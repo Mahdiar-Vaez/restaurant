@@ -3,19 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:80svh ;
+    min-height:100vh ;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
 }
 .shopping-cart {
     width: 850px;
-    height: 423px;
     
-    margin: 80px auto;
+    margin: 20px auto;
     background: #FFFFFF;
     box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
     border-radius: 6px;
-    overflow: auto;
+    
     display: flex;
     flex-direction: column;
+
   }
   span{
     font-family: 'tahoma';
@@ -27,10 +29,10 @@
     color: #5E6977;
     font-size: 18px;
     font-weight: 400;
+    margin-top: 20px;
   }
    
   .item {
-    border-radius: 10px;
     padding: 0 20px;
     height: 200px;
     display: flex;
@@ -92,7 +94,9 @@
     color: #43484D;
     font-weight: 400;
   }
-   
+   .des-name{
+    font-family: 'titr' !important;
+   }
   .description span:first-child {
     margin-bottom: 5px;
   }
@@ -157,12 +161,16 @@
     justify-content: start;
     align-items: center;
     
-    margin-top: 50px;
+    margin-top: 10px;
     
   }
   
   .total span{
     font-family: 'tahoma';
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 10px;
   }
   .empty{
     height: 90svh;
@@ -181,17 +189,74 @@
   .empty a:hover{
     color: white;
     background-color: black;
+    
+  }
+  .link{
+    padding: 10px;
+    background-color: #5E6977;
+    border-radius: 10px;
+  }
+  .form{
+    display: flex;
+    
+    flex-direction: column;
+    margin: 24px 12px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .form > textarea {
+    border: 1px solid #5E6977;
+    outline: none;
+    resize: none;
+    width:200px ;
+    height: 150px;
+    border-radius: 10px ;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'iransans';
+    color: var(--bg-reding);
+  }
+  .form input{
+    border: 1px solid gray;
+    width: 200px;
+    height: 40px;
+    color: var(--bg-reding);
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'iransans';
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .form > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    color: var(--bg-reding);
+    background-color: var(--bg-secondary);
+    border: none;
+    border-radius: 10px;
+    font-family: 'iransans';
+    cursor: pointer;
   }
   @media (max-width: 800px) {
     .shopping-cart {
-      width: 100%;
+      width: 85vw;
       height: auto;
       overflow: hidden;
+      margin: 20px 24px;
+      
     }
     .item {
-      height: auto;
+      gap: 4px;
+      padding: 0;
       flex-wrap: wrap;
       justify-content: center;
+      height: 350px;
+      
     }
     .image img {
       width: 50%;

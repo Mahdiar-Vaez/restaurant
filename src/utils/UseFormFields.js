@@ -2,8 +2,7 @@ import React, { useState } from "react";
 export default function useFormFields (){
     const [fields,setFields]=useState({})
     const handleFields=(e)=>{
-        const {target}=e
-        setFields({...fields,[target.name]:target.value})
+        e?.target?.value&&setFields({...fields,[e?.target?.name]:e?.target?.value})
     }
     return [fields,handleFields]
 }

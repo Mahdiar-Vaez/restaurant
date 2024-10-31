@@ -5,12 +5,15 @@
     align-items: center;
 }
 .food-detail{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 700px;
     min-height: 70svh;
+    padding: 10px;
+    margin: 10px 0px;
 }
 .food-detail button{
     margin-top: 20px;
@@ -34,7 +37,9 @@
 }
 .buttons{
     display: flex;
-    width: 500px;
+    max-width: 450px;
+    gap: 10px;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .buttons button {
@@ -43,7 +48,7 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    color: white;
+    color: black;
     font-size: 18px;
 }
 .buttons button span{
@@ -57,7 +62,41 @@
 .buttons button:hover{
     color: black;
     background-color: var(--bg-reding);
+    color: white;
+}
+.buttons button:hover svg{
+    color: white;
+
+}
+.remove-button{
+    color: white !important;
+    background-color: var(--bg-secondary) !important;
+}
+.remove-button:hover{
+    color: black !important;
+    background-color: white !important;
+    border: 1px solid black;
+}
+.remove-button svg{
+    color: white !important;
+}
+.remove-button:hover svg{
+    color: var(--bg-reding) !important ;
 }
 .buttons button:active{
     color: white;
+}
+.add-favorite{
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: .3s ;
+
+cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+   .buttons{
+    flex-direction: column;
+   }
 }

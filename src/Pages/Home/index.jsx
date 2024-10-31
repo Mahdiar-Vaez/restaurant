@@ -53,27 +53,24 @@ export default function Home() {
       <SwiperSec />
       <div className="category section">
         <div className="category-items">
-          <h4>پیتزا ها</h4>{" "}
+        
           <Link to={"./foods/pizza/1"}>
             <img src={pizza} alt="pizza category" />
           </Link>
         </div>
         <div className="category-items">
           {" "}
-          <h4>ساندویچ ها</h4>
           <Link to={"./foods/sandwich/2"}>
             <img src={sandwich} alt=" sandwich category" />
           </Link>
         </div>
         <div className="category-items">
           {" "}
-          <h4>همبرگر ها</h4>
           <Link to={"./foods/hamburger/3"}>
             <img src={hambuger} alt="hamburger category" />
           </Link>
         </div>
         <div className="category-items">
-          <h4>نوشیدنی ها</h4>
 
           <Link to={"./foods/drinks/4"}>
             <img src={drink} alt="drinks category" />
@@ -81,21 +78,24 @@ export default function Home() {
         </div>
       </div>
       <div className="offers section">
+        <Link to={'foods/hamburger/3'}>
         <div className="offer-items">
           <img src={bannerBurger} alt="برگر" />
           <h4>همبرگر مخلوط</h4>
           <span>تخفیف 30 درصد</span>
-        </div>
+        </div></Link>
+        <Link to={'/foods/pizza/1'}>
         <div className="offer-items">
           <img src={bannerPizza} alt="پیتزا" />
           <h4>پیتزا یامی</h4>
           <span>نصف*نصف</span>
-        </div>
+        </div></Link>
+        <Link to={'/foods/all/0'}>
         <div className="offer-items">
           <img src={bannerChicken} alt="چیکن" />
           <h4>جوجه میکس</h4>
           <span>ترد</span>
-        </div>
+        </div></Link>
       </div>
       <div className="hamburgers section">{hamburgerItems}</div>
       <div className="delivery section">
@@ -107,8 +107,8 @@ export default function Home() {
           </p>
           <button>سفارش و تحویل آنلاین</button>
         </div>
-        <div>
-          <img src={delivery} alt="delivery image" />
+        <div className="delivery-img">
+          <img  src={delivery} alt="delivery image" />
         </div>
         <div className="deliver-content">
           <h3> نقطه راحت را انتخاب کن</h3>

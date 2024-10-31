@@ -47,7 +47,8 @@ export default function Register({handleUser}) {
  
       <form onSubmit={handleSubmit} action="">
       <div className='login'>
-  
+      <div className='login-register-overlay'> </div>
+
           <h3>
               ثبت نام  
           </h3>
@@ -68,7 +69,7 @@ export default function Register({handleUser}) {
           </div>
            <label htmlFor='remember'>مرا به خاطر بسپار</label>
           <input className='check-box' type="checkbox" id='remember' name='remember' />
-          <p style={{cursor:'pointer'}} onClick={handleUser}>حساب کاربری داری ؟  وارد شو</p>
+          <p className='change-registration'  style={{cursor:'pointer'}} onClick={handleUser}>حساب کاربری داری ؟  وارد شو</p>
           <button  type='submit'>
               ادامه
           </button>

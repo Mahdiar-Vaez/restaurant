@@ -8,7 +8,7 @@ nav{
     background-color: var(--bg-primary);
     color: #fff;
     gap: 20px;
-    z-index: 10;
+    z-index: 1000;
     top: 0;
 
 }
@@ -34,12 +34,12 @@ nav li{
     transition: .2s;
     background-color: var(--bg-secondary);
     position: relative;
-    transform: scale(.7);
+    transform: scale(.6);
 
     z-index: 10;
 }
 .shape:hover{
-    transform: scale(1);
+    transform: scale(.7);
 }
 
 
@@ -55,13 +55,14 @@ nav li{
 
     top: 99%;
 }
-.btn-left{
+.right-nav-icons{
     display: flex;
 justify-content: space-evenly;
 padding: 10px;
 align-items: center;
+
 border-radius: 30px;
-    width:250px;
+    width:150px;
     height: 50px;
     left: 10%;
     background-color: white;
@@ -69,34 +70,19 @@ border-radius: 30px;
     color: black;
     top: 110px;
 }
-.btn-left svg{
+.right-nav-icons svg{
     cursor: pointer;
     font-size: xx-large;
     border-radius: 10px;
 }
-.btn-right{
-    left: 10%;
-    z-index: 100;
-    top: 110px;
-    width: 150px;
-    height: 50px;
-    background: var(--bg-reding) ;
-    outline: none;
-    position: fixed;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    font-family: 'iransans';
+
+.favorite:hover{
+    color: red;
 }
-.btn-right:hover{
-    background-color:white ;
-    color: black;
-    cursor: pointer;
-    transition: .3s all;
+.cart-svg:hover{
+    color: var(--bg-secondary);
 }
-.btn-left svg:hover{
-    background-color: var(--bg-secondary);
-}
+
 .dropdown{
     display: flex;
     align-items: center;
@@ -153,7 +139,6 @@ border-radius: 30px;
     background-color: red;
     border-radius: 10px;
     width: 20px;
-    color: white;
     height: 20px;
     text-align: center;
 }
@@ -186,6 +171,9 @@ border-radius: 30px;
     cursor: pointer;
 
 }
+.nav-links li:hover{
+    color: #888;
+}
 .drawer ul{
     
     transition:all .5s;
@@ -210,6 +198,8 @@ border-radius: 30px;
 
 .drawer a{
     color: white;
+    display: flex;
+    align-items: center;
 }
 .link-item{
     color: white;
