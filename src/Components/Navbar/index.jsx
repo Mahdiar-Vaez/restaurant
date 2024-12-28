@@ -14,7 +14,6 @@ export default function Navbar() {
   const listLength = useSelector((state) => state.cart.list).length;
   const favoriteLength=useSelector((state)=>state.favorite.favoriteList).length
   
-  console.log(listLength);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const location = useLocation();

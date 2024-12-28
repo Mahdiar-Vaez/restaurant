@@ -1,15 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useInsertionEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./cart.css";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { addItem, removeItem } from "../../redux/CartSlice";
 import CheckContext from "../../utils/checkoutContext";
 
 export default function Cart() {
-  const { list } = useSelector((state) => state.cart);
-  const { checkOut, handleCheckOut } = useContext(CheckContext);
 
+
+  const { list } = useSelector((state) => state.cart);
+  const {  handleCheckOut } = useContext(CheckContext);
   const dispatch = useDispatch();
+  
   const listItems = list?.map((e, index) => {
     return (
       <div key={index} class="item">
@@ -25,16 +27,27 @@ export default function Cart() {
 
         <div class="quantity">
           <button
-            onClick={() => dispatch(addItem(e))}
+            onClick={() =>{ 
+      
+               
+              dispatch(addItem(e))}}
             class="plus-btn"
             type="button"
             name="button"
           >
             +
           </button>
-          <input type="text" name="name" value={e?.quantity} />
+          <input type="text" name="name" value={e?.quantity} readOnly/>
           <button
-            onClick={() => dispatch(removeItem(e?.id))}
+           onClick={() => {
+            if (e.quantity > 1) {
+              dispatch(removeItem(e.id));
+            } else {
+              dispatch(removeItem(e.id));
+              const updatedCartList = list.filter((item) => item.id !== e.id);
+              localStorage.setItem("cartList", JSON.stringify(updatedCartList));
+            }
+          }}
             class="minus-btn"
             type="button"
             name="button"
@@ -44,6 +57,7 @@ export default function Cart() {
         </div>
       </div>
     );
+
   });
   const totalPrice =
     list?.reduce((a, b) => a + b?.price * b?.quantity, 0) + "000";

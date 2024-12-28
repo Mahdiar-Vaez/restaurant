@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './style.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { addFavorite, removeAllFavorite, removeFavorite } from '../../redux/FavoriteSlice'
-import { Link } from 'react-router-dom'
+import { removeFavorite } from '../../redux/FavoriteSlice'
 export default function Favorite() {
     const {favoriteList}=useSelector((item)=>item.favorite)
     const dispatch=useDispatch()
   
-    console.log(favoriteList)
   return (
     <div className='favorite-container'>
        {!favoriteList.length>0 ? <><h1 style={{alignSelf:'center',marginTop:40,justifySelf:'center'}} className='title-empty'>

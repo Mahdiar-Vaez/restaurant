@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SwiperSec from "../../Components/Swiper";
 import "./home.css";
 import { MdOutlineDeliveryDining } from "react-icons/md";
@@ -24,9 +24,9 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://localhost:3001/hamburger");
+        const res = await fetch("https://mahdiar-vaez.github.io/host-restaurant/data.json");
         const data = await res.json();
-        setHamburger(data);
+        setHamburger(data?.hamburger);
       } catch (error) {
         alert("can not fetch");
       }
@@ -36,13 +36,12 @@ export default function Home() {
     return (
       <Link to={`/food-detail/${e.id}/${e?.name.split(' ').join('-')}`}>
       <div className="hamburger-items">
-        <img src={e?.img} alt={e?.name} />
+        <img src={e?.img} loading="lazy" alt={e?.name} />
         <span>{e?.price} تومان</span>
         <h5>{e?.name}</h5>
         <p>{e?.des}</p>
         <div>
           {" "}
-          <button>سفارش</button>
         </div>
       </div></Link>
     );
@@ -55,13 +54,13 @@ export default function Home() {
         <div className="category-items">
         
           <Link to={"./foods/pizza/1"}>
-            <img src={pizza} alt="pizza category" />
+            <img loading="lazy" src={pizza} alt="pizza category" />
           </Link>
         </div>
         <div className="category-items">
           {" "}
           <Link to={"./foods/sandwich/2"}>
-            <img src={sandwich} alt=" sandwich category" />
+            <img loading="lazy" src={sandwich} alt=" sandwich category" />
           </Link>
         </div>
         <div className="category-items">
@@ -73,7 +72,7 @@ export default function Home() {
         <div className="category-items">
 
           <Link to={"./foods/drinks/4"}>
-            <img src={drink} alt="drinks category" />
+            <img src={drink} loading="lazy" alt="drinks category" />
           </Link>
         </div>
       </div>

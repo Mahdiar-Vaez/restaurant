@@ -1,7 +1,12 @@
 import React from 'react'
-
+import './style.css'
 export default function NotFound() {
   return (
-    <div>Page Not Found Error 404</div>
+    <div className='not-found'>
+      <img src='./assets/not-found.gif' alt="پیدا نشد" />
+      <h3>
+        صفحه مورد نظر یافت نشد
+      </h3>
+    </div>
   )
 }

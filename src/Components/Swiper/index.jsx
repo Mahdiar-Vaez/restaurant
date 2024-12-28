@@ -24,9 +24,9 @@ export default function SwiperSec() {
 useEffect(()=>{
   (async()=>{
     try {
-      const res=await fetch("http://localhost:3001/Swiper")
+      const res=await fetch("https://mahdiar-vaez.github.io/host-restaurant/data.json")
       const data=await res.json()
-      setImg(data)
+      setImg(data?.Swiper)
       setLoading(false)
     } catch (error) {
 alert('مشکلی در سرور وجود دارد')  
@@ -55,7 +55,7 @@ setLoading(false)
         disableOnInteraction:false
       }}  navigation={true} modules={[Navigation,Autoplay]} className="mySwiper">
      {img?.map((e)=> <SwiperSlide  className="section ">
-          <img src={e?.imgUrl} alt="جوجه سخاری" />
+          <img src={e?.imgUrl} loading="lazy" alt='عکس اسلایدر' />
           <div className="slide-content">
             {" "}
             <h3  className="slide-content-h3">{e?.name}</h3>

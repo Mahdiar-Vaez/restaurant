@@ -16,42 +16,34 @@ import { addItem } from "./redux/CartSlice";
 import { addFavorite } from "./redux/FavoriteSlice";
 export default function App() {
   const dispatch=useDispatch()
-  const {user,token}=useSelector((state)=>state.auth)
-  
+  const {user}=useSelector((state)=>state.auth)
   const [checkOut,setCheckOut]=useState()
   function handleCheckOut(e){
     setCheckOut(e)
     
   }
-  const cartList=useSelector((state)=>state.cart.list)
   useEffect(() => {
     const localStorageCart = localStorage.getItem("cartList");
+    console.log("🚀 ~ useEffect ~ localStorageCart:", JSON.parse(localStorageCart));
     
     const parsedLocalStorage = JSON.parse(localStorageCart);
-    console.log("🚀 ~ useEffect ~ parsedLocalStorage:", parsedLocalStorage)
-     if(Array.isArray(parsedLocalStorage)){
-     parsedLocalStorage.forEach((item)=>
-    {
-      dispatch(addItem(item)) // Add each item to the cartList
+    if (Array.isArray(parsedLocalStorage)) {
+      parsedLocalStorage.forEach((item) => {
+        dispatch(addItem(item));
+      });
     }
-    )
-  
-    }
-    
   }, []);
-  console.log("🚀 ~ App ~ cartList:", cartList)
-
   useEffect(() => {
     // Load favoriteList from local storage when the component mounts
     const savedFavoriteList = localStorage.getItem('favoriteList')
     if (savedFavoriteList) {
    // Clear the current favoriteList
       const parsedFavoriteList = JSON.parse(savedFavoriteList)
-     console.log(parsedFavoriteList)
       if(Array.isArray(parsedFavoriteList)){
-      parsedFavoriteList?.forEach((item) => {
-        dispatch(addFavorite(item)) // Add each item to the favoriteList
-      })
+        for (let i = 0; i < parsedFavoriteList.length; i++) {
+          const item = parsedFavoriteList[i];
+          dispatch(addFavorite(item)); // Add each item to the favoriteList
+        }
     }
     }
    

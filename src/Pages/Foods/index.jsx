@@ -11,9 +11,9 @@ export default function Foods() {
 
     (async()=>{
       try {
-       const res=await fetch(`http://localhost:3001/${name}`)
+       const res=await fetch(`https://mahdiar-vaez.github.io/host-restaurant/data.json`)
       const data=await res.json()
-      setFoods(data)
+      setFoods(data[name])
       setLoading(false)
       } catch (error) {
         setLoading(false)
@@ -47,7 +47,7 @@ export default function Foods() {
       </div>:<div className='foods-section'>
           {Array.isArray(foods)>0 && foods.map((e,index)=>(
     <div key={index} className='food-card'>
-      <img  src={e?.img} alt='' />
+      <img  src={e?.img} alt={e?.name} loading='lazy' />
       <h4>{e?.name}</h4>
       <p>{e?.des}</p>
       <span>{e?.price}تومان</span>

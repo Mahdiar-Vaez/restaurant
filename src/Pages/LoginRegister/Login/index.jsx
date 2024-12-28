@@ -30,17 +30,12 @@ export default function Login({handleUser}) {
   async function handleSubmit(e) { 
     e?.preventDefault()
   
-    const res = await fetch('http://localhost:3001/users', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
+    const res = await fetch('https://mahdiar-vaez.github.io/host-restaurant/data.json')
   
     const data = await res.json()
-  
-    if (data && data.length > 0) {
-      const user = data?.find(
+    
+    if (data?.users && data?.users?.length > 0) {
+      const user = data?.users?.find(
         (user) => user.username === fields.username && user.password === fields.password
       )
   
@@ -68,7 +63,15 @@ export default function Login({handleUser}) {
     <form onSubmit={handleSubmit} action="">
     <div className='login'>
       <div className='login-register-overlay'> </div>
-        <h3>
+      <p className='warning'>
+        به دلیل مشکلات به وجود آمده در هاست امکان ثبت نام وجود ندارد لطفا 
+        نام کاربری خود را : ali و رمز عبور را : 123 وارد کنید
+        یا هم میتوانید با مراجعه به لینک 
+   
+      <a style={{color:'blueviolet'}} href="https://mahdiar-vaez.github.io/host-restaurant/data.json" > هاست گیت هاب </a>
+      اسامی و نام های مجاز را پیدا کرده و وارد شوید 
+      این صرفا جهت تست است و کاربرد دیگر ندارد
+         </p>  <h3>
             ورود 
         </h3>
         <label  htmlFor='username' >نام کاربری خود را وارد کنید *</label>
